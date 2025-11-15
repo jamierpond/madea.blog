@@ -26,6 +26,18 @@ git init
 echo "# My First Post" > hello-world.md
 git add .
 git commit -m "first post"
+# create a repo called madea.blog on GitHub
+git remote add origin https://gitub.com/yourusername/madea.blog.git
+git push
+```
+
+Or even:
+```bash
+gh repo create madea.blog --public --clone
+cd madea.blog
+echo "# My First Post" > hello-world.md
+git add .
+git commit -m "first post"
 git push
 ```
 
