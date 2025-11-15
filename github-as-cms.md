@@ -118,8 +118,8 @@ The article about using GitHub as a CMS is *served from GitHub as a CMS*.
 
 Maybe. But also maybe not?
 
-We've normalized using:
-- S3 as a database (just store JSON files!)
+This is way less cursed than:
+- S3 as a database using JSON files
 - Redis as a message queue
 - Postgres as a job queue
 - Kafka as a database
