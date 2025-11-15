@@ -4,17 +4,17 @@ A free, open-source service that automatically turns your GitHub repo into a bea
 
 ## How It Works
 
-1. Create a public GitHub repository (any name works, but `blog` or `madea-blog` are recommended)
+1. Create a public GitHub repository called `madea.blog`
 2. Add markdown files to your repo
 3. Visit `username.madea.blog`
 4. Your blog is live!
 
 ## Features
-
 - **Zero Configuration**: Just write markdown and push to GitHub
 - **Automatic Updates**: Your blog updates whenever you push to your repo
 - **Free Forever**: This is an open-source gift to the community
 - **GitHub-Powered**: Uses the GitHub API to fetch and render your content
+    - (Sorry yes, GitLab, Bitbucket, and others are not supported at this time...)
 - **Simple**: No build steps, no deployment, no hassle
 
 ## Writing Posts
@@ -37,8 +37,9 @@ Check out the sample posts in this repository:
 - `explaining-internet-to-time-travelers.md` - Bridging the temporal knowledge gap
 
 ## Why "madea"?
+Because your domain is `username.madea.blog`. You Made A Blog.
 
-Because blogs should be as straightforward as Madea herself - no nonsense, no complexity, just getting it done.
+Also, because blogs should be as straightforward as Madea herself - no nonsense, no complexity, just getting it done.
 
 ## Contributing
 
