@@ -1,6 +1,6 @@
 # Headless Madea: Bring Your Own Frontend
 
-A few weeks ago I wrote about [using GitHub as a CMS](/github-as-cms). Push markdown, it's live. No database, no build step, no configuration.
+A few weeks ago I wrote about [using GitHub as a CMS](/github-as-cms.md). Push markdown, it's live. No database, no build step, no configuration.
 
 But here's the thing: `madea.blog` is just *one* way to render that content. What if you want a 90s Geocities aesthetic? A terminal-based UI? A 3D WebGL blog where posts float in space?
 
