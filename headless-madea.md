@@ -8,7 +8,7 @@ Enter `madea-blog-core`.
 
 ## The Split
 
-We realized early that the "fetch markdown from GitHub" logic and the "render it pretty" logic don't need to live together. So we split them:
+I realized early that the "fetch markdown from GitHub" logic and the "render it pretty" logic don't need to live together. So I split them:
 
 1. **`madea-blog-core`**: The brain. Handles GitHub API, file tree traversal, caching, rate limits. Doesn't know what HTML is.
 2. **Your App**: The body. Takes data from the core, renders it however you want.
@@ -78,7 +78,7 @@ Build your own routing. Your own caching. Your own everything. The provider just
 
 ## Case Study: The Code Golf Blog
 
-We challenged ourselves: how minimal can a functional blog get?
+I challenged myself: how minimal can a functional blog get?
 
 The result was `blog.pond.audio`. Same `madea-blog-core` package, stripped to the bones.
 
@@ -100,7 +100,7 @@ That's it. The library handles GitHub, rate limits, caching. You write React com
 
 ## Why Go Headless?
 
-**Custom Branding**: You're not stuck with our styles. Build whatever aesthetic you want.
+**Custom Branding**: You're not stuck with my styles. Build whatever aesthetic you want.
 
 **Custom Routing**: Want your blog at `/writing` instead of `/`? Want posts at `/thoughts/[year]/[slug]`? Your app, your routes.
 
