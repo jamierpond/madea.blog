@@ -80,7 +80,7 @@ Build your own routing. Your own caching. Your own everything. The provider just
 
 I challenged myself: how minimal can a functional blog get?
 
-The result was `[golf.blog.pond.audio]("https://golf.blog.pond.audio")`. Same `madea-blog-core` package, stripped to the bones.
+The result was `[golf.blog.pond.audio]`("https://golf.blog.pond.audio"). Same `madea-blog-core` package, stripped to the bones.
 
 ## Why Go Headless?
 
