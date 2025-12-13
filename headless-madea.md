@@ -18,7 +18,7 @@ This is "headless" in the truest sense. Except the CMS is free (it's GitHub), th
 ## Quick Start
 
 ```bash
-npm install madea-blog-core
+npm install madea-blog-core -- coming soon
 ```
 
 Then pick your pattern.
@@ -80,23 +80,7 @@ Build your own routing. Your own caching. Your own everything. The provider just
 
 I challenged myself: how minimal can a functional blog get?
 
-The result was `blog.pond.audio`. Same `madea-blog-core` package, stripped to the bones.
-
-**The entire page component:**
-
-```typescript
-const CONFIG = {
-  dataProvider: new GitHubDataProvider({ ... }),
-  articleView: ({ article }) => <h1>{article.title}</h1>,
-  fileBrowserView: ({ articles }) => <List items={articles} />,
-};
-
-export default async function Page({ params }) {
-  return renderMadeaBlogPage(CONFIG, params);
-}
-```
-
-That's it. The library handles GitHub, rate limits, caching. You write React components.
+The result was `[golf.blog.pond.audio]("https://golf.blog.pond.audio")`. Same `madea-blog-core` package, stripped to the bones.
 
 ## Why Go Headless?
 
@@ -124,6 +108,7 @@ Perfect for:
 - Developing your theme offline
 - Previewing posts before pushing
 - Internal tools that don't need the internet
+- Storing your markdown with your blog.
 
 Switching from local to GitHub is one line.
 
