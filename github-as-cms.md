@@ -1,6 +1,6 @@
 # Your new blog: Abusing GitHub as a CMS
 
-I spent the weekend building a blog platform that has no database, no markdown processor on the client, no build step, and no configuration. You just push markdown to GitHub and it's live.
+I spent a few hours over a few weekends building a blog platform that has no database, no markdown processor on the client, no build step, and no configuration. You just push markdown to GitHub and it's live.
 
 Yeah, I'm using GitHub as a CMS. And it's kind of perfect.
 
@@ -22,17 +22,6 @@ What if your blog was just... a GitHub repository?
 
 ```bash
 # This is literally all you do
-git init
-echo "# My First Post" > hello-world.md
-git add .
-git commit -m "first post"
-# create a repo called madea.blog on GitHub
-git remote add origin https://gitub.com/yourusername/madea.blog.git
-git push
-```
-
-Or even:
-```bash
 gh repo create madea.blog --public --clone
 cd madea.blog
 echo "# My First Post" > hello-world.md
@@ -45,7 +34,7 @@ That's it. Your blog is live at `yourusername.madea.blog`.
 
 No build step. No deployment. No configuration files. No database. Just push markdown to `yourusername/madea.blog` and it's published.
 
-## How It Works (The Technical Bit)
+## How It Works
 
 The entire "CMS" is the GitHub API. Here's the architecture:
 
@@ -118,19 +107,13 @@ The article about using GitHub as a CMS is *served from GitHub as a CMS*.
 
 Maybe. But also maybe not?
 
-This is way less cursed than:
-- S3 as a database using JSON files
-- Redis as a message queue
-- Postgres as a job queue
-- Kafka as a database
+This is way less cursed than S3 as a database using JSON files.
 
 Is using GitHub as a CMS really that cursed? It's literally designed to store and version text files and provide an API to access them.
 
 ## Why I Actually Like This
 
-I've tried every blogging platform. Ghost, Medium, Substack, Hashnode, dev.to, WordPress, Jekyll, Hugo, Gatsby, Next.js with MDX, Astro...
-
-They all have the same problem: friction between writing and publishing.
+I've tried many blogging platforms, but they all have the same problem: friction between writing and publishing.
 
 This has zero friction. I write markdown in my editor of choice. I commit. I push. It's live.
 
@@ -153,13 +136,13 @@ It's just Git.
 
 ## The Code
 
-The entire platform is ~500 lines of TypeScript. It's just:
+The entire platform is a few hundred lines of Typescipt.
 - Next.js API routes that fetch from GitHub
 - Middleware for subdomain routing
 - React components that render markdown
 - That's it
 
-[Check it out on GitHub](https://github.com/yourusername/madea.blog) (meta inception continues...)
+[Check it out on GitHub](https://github.com/jamierpond/madea.blog) (meta inception continues...)
 
 ## Is This The Future?
 
@@ -171,6 +154,6 @@ Like it should be.
 
 ---
 
-*This post was written in vim, committed in 3 minutes, and is currently being served to you via an unholy combination of GitHub's API, Vercel's edge network, and the sheer audacity of using version control as a content management system.*
+*This post was written in vim, and is currently being served to you via an unholy combination of GitHub's API, Vercel's edge network, and the sheer audacity of using version control as a content management system.*
 
 *Welcome to madea.blog - where Git is your CMS and `push` is your deploy button.*
