@@ -71,39 +71,20 @@ Yapi makes it easy to chain requests and share data between them, even if they a
 # multi-protocol-chain.yapi.yml
 yapi: v1
 chain:
-  - name: get_todo
+  - name: get_todo # HTTP request
     url: https://jsonplaceholder.typicode.com/todos/1
     method: GET
 
-  - name: tcp_echo
-    url: tcp://tcpbin.com:4242
-    data: "Todo: ${get_todo.title}\n"
-    encoding: text
-    read_timeout: 5
-    close_after_send: true
-
-  - name: grpc_hello
+  - name: grpc_hello # gRPC request
     url: grpc://grpcb.in:9000
     service: hello.HelloService
-    rpc: SayHello
+    rpc: SayHello # Supports reflection if server has it enabled
     plaintext: true
     body:
-      greeting: $get_todo.title
-
-  - name: create_post
-    url: https://jsonplaceholder.typicode.com/posts
-    method: POST
-    headers:
-      Content-Type: application/json
-    body:
-      original_todo: $get_todo.title
-      grpc_reply: $grpc_hello.reply
-      userId: $get_todo.userId
+      greeting: $get_todo.title # use data from previous request
     expect:
-      status: 200
       assert:
-        # run tests using jq assertions
-        - .userId == $get_todo.userId
+        - .reply == "hello delectus aut autem" # assert on gRPC response
 ```
 
 And gives you this response:
