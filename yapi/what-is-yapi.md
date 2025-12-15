@@ -1,12 +1,10 @@
-# (draft) what is yapi?
+# What is yapi?
 ## yapi is the api client that runs in your terminal.
 
 > yapi is the hacker's postman, insomnia or bruno.
 
 yapi is an oss command line tool that makes it easy to test apis from your terminal. yapi speaks http, grpc, tcp, graphql (and more coming soon).
 
-
-## Firstly, why is yapi?
 
 ### yapi speaks http
 i wanted a fun way to make http requests from the terminal (without massive, ad-hoc `curl` incantations).
