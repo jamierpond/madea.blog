@@ -90,7 +90,6 @@ chain:
 
 ### Integration Testing with yapi
 Yapi has built-in support for writing integration tests with expectations and assertions.
-Which makes it easy to write regresssion tests and ensure your APIs are working as expected.
 
 ```yaml
 yapi: v1
