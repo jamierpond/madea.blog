@@ -1,67 +1,54 @@
-# (Draft) What is yapi?
+# What is yapi?
 ## Yapi is the API client that runs in your terminal.
 
 > Yapi is the hacker's Postman, Insomnia or Bruno.
 
-Yapi is an OSS command line tool that makes it easy to test APIs from your terminal. Yapi speaks HTTP, gRPC, TCP, GraphQL (and more coming soon).
+Yapi is an OSS command line tool that makes it easy to test APIs from your
+terminal. Yapi speaks HTTP, gRPC, TCP, GraphQL (and more coming soon).
 
 ### Yapi speaks HTTP
-I wanted a fun way to make HTTP requests from the terminal (without massive, ad-hoc `curl` incantations).
-#### GET
-This request:
-```yaml
-# search.yapi.yml
-yapi: v1
-method: GET
-url: https://api.github.com/search/repositories
-headers:
-  Authorization: Bearer ${GITHUB_PAT} # Reads from your environment
-query:
-  q: yapi in:name, jamierpond in:owner
-jq_filter: |
-    .items[] | {
-      name: .name,
-      stars: .stargazers_count,
-      url: .html_url
-    }
-```
+I wanted a fun way to make HTTP requests from the terminal (without massive,
+ad-hoc `curl` incantations).
 
-Gives you this response:
-```json
-yapi run search.yapi.yml
-{
-  "name": "yapi",
-  "stars": 5, // at time of writing!
-  "url": "https://github.com/jamierpond/yapi"
-}
-{
-  "name": "yapi-blog",
-  "stars": 0,
-  "url": "https://github.com/jamierpond/yapi-blog"
-}
-{
-  "name": "homebrew-yapi",
-  "stars": 0,
-  "url": "https://github.com/jamierpond/homebrew-yapi"
-}
-```
+### Elephant in the room, *why another API client?*
+I built yapi for me. I built it because I wanted to quickly test APIs from the
+terminal without `curl` incantations, and I wanted to write query parameters
+without%20having%20to%20URL%20encode%20them%20myself%21
+
+For this I ended up building a simple bash script that read YAML files and made
+`curl` requests. I shared it with a few friends and they found it useful too.
+
+I then was working on some other projects and found myself needing to test APIs
+using gRPC and TCP protocols.
+
+I extended my little bash script to support gRPC and TCP protocols, using
+`grpcurl` and `netcat` and I thought this was really useful.
+
+I then thought, why not make this into a real project that others can use?
+So here we are, yapi was born.
 
 #### POST
 This request:
+
 ```yaml
 # create-issue.yapi.yml
-yapi: v1
-method: POST
+yapi: v1 # specify yapi version
+method: POST # or GET, PUT, DELETE, PATCH, etc.
 url: https://api.github.com/repos/jamierpond/yapi/issues
 headers:
   Accept: application/vnd.github+json
-  Authorization: Bearer ${GITHUB_PAT}
-body:
+  Authorization: Bearer ${GITHUB_PAT} # supports environment variables
+body: # defaults to JSON body, converted automatically
   title: Help yapi made me too productive.
-  body: |
-    Now I can't stop YAPPIN' about yapi!
+  body: Now I can't stop YAPPIN' about yapi!
+expect: # supports expected response tests
+  status: 201
+  assert: # assert using jq syntax
+    - .body == "Now I can't stop YAPPIN' about yapi!"
 ```
+
 Gives you this response:
+
 ```json
 yapi run create-issue.yapi.yml
 {
