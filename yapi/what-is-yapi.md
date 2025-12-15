@@ -87,25 +87,5 @@ chain:
         - .reply == "hello delectus aut autem" # assert on gRPC response
 ```
 
-And gives you this response:
-```json
-yapi run multi-protocol-chain.yapi.yml
-{
-  "completed": false,
-  "id": 1,
-  "title": "delectus aut autem",
-  "userId": 1
-}
-{
-  "reply": "hello delectus aut autem"
-}
-{
-  "grpc_reply": "hello delectus aut autem",
-  "id": 101,
-  "original_todo": "delectus aut autem",
-  "userId": 1
-}
-```
-
 
 
