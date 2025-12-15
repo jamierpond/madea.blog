@@ -11,21 +11,15 @@ I wanted a fun way to make HTTP requests from the terminal (without massive,
 ad-hoc `curl` incantations).
 
 ### Elephant in the room, *why another API client?*
-I built yapi for me. I built it because I wanted to quickly test APIs from the
-terminal without `curl` incantations, and I wanted to write query parameters
-without%20having%20to%20URL%20encode%20them%20myself%21
+I built yapi for me to quickly test APIs from the without `curl` incantations,
+and without%20having%20to%20manually%20encode%20query%20parameters%21.
 
-For this I ended up building a simple bash script that read YAML files and made
-`curl` requests. I shared it with a few friends and they found it useful too.
+I initially did this with a simple bash script that used `curl` & `jq`.
 
-I then was working on some other projects and found myself needing to test APIs
-using gRPC and TCP protocols.
+Then I was working on other projects using gRPC and TCP, and I saw that I could
+support them with a little `grpcurl` and `netcat` magic.
 
-I extended my little bash script to support gRPC and TCP protocols, using
-`grpcurl` and `netcat` and I thought this was really useful.
-
-I then thought, why not make this into a real project that others can use?
-So here we are, yapi was born.
+It kinda kept growing, and I thought *"hey, maybe other people would find this useful?"*
 
 #### POST
 This request:
@@ -68,7 +62,6 @@ Size: 2.3 kB (1 lines, 2288 chars)
 [PASS] .body == "Now I can't stop YAPPIN' about yapi!"
 ```
 *(Only the JSON goes to stdout, the rest goes to stderr, so is pipeable!)*
-
 
 You can also do PUT, PATCH, DELETE and any other HTTP method.
 
