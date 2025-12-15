@@ -75,7 +75,6 @@ chain:
   - name: get_todo # HTTP request
     url: https://jsonplaceholder.typicode.com/todos/1
     method: GET
-
   - name: grpc_hello # gRPC request
     url: grpc://grpcb.in:9000
     service: hello.HelloService
@@ -87,13 +86,12 @@ chain:
       assert:
         - .reply == "hello delectus aut autem" # assert on gRPC response
 ```
-
+[Run this example in the yapi playground](https://yapi.run/c/Df.8OgAzqUG-ZpArHJoiQovBOB1XLQM8BNSbz655jxnoC_d1kKWwWp3qeqyLUO_M73lKIwrUWJ6prOLMl5R2.qS8r1QzMvktH~6BGCJjH3E6CO6.iI_fuN4z.kAT3W70t~of01maCruwdBfYgS_nxmtesmpiqKbjalxSWIKMGIRbdL_u8WwRc89gKXPB0kW5wy_CGDmIF0Kef.vuRpV7Hm3BjZie2~yI6DHtvb-RgOqEzldl0W~Y.m4RTNw_Oy.OlksIrAkhwiIy6gdyVqPk0tgTzOePDzuo.trOigUj1AtfBNDpowrEdIU3MmT53pjaobcZV73FYwwpjWOfdNCEJqKTTUVrCc8ZgVB5riViWnJxqo5yz759FWyiBFbi~_2nLHnu67V7RLQPUYnFknAovF2SegQYEmmI~vrbJjjmdNShJNaVW)
 
 ### Yapi supports wriring intgration tests with expectations and assertion.
 Yapi has built-in support for writing integration tests with expectations and assertions.
 Which makes it easy to write regresssion tests and ensure your APIs are working as expected.
 
-[Run this example in the yapi playground](https://yapi.run/c/TccVrmpVtt_daI~NZovhqJO6LNVxr-qTEAL9aQp.nAvs9GoUK8PdGgJ6o34wC-THPf64WS.-iAWCfXohQ8~eo~7iOhp6Wop-a_lwPT.Y624K-1S97CVJgXwMRxtwUzZz6on7xftwVegIkX~6hO81OIvTsA6ASUgWdnf8va0QlaGHLI5w1d3LZ5WQ4xzYDg8~5lqPB5s3FE~~EL8aBeCKk-FtOPJ1AIPDMNH4X55A8QLYUF3NWY)
 ```yaml
 yapi: v1
 method: GET
@@ -106,3 +104,5 @@ expect:
       - .state == "closed"
       - .closed_by.login == "jamierpond"
 ```
+[Run this example in the yapi playground](https://yapi.run/c/TccVrmpVtt_daI~NZovhqJO6LNVxr-qTEAL9aQp.nAvs9GoUK8PdGgJ6o34wC-THPf64WS.-iAWCfXohQ8~eo~7iOhp6Wop-a_lwPT.Y624K-1S97CVJgXwMRxtwUzZz6on7xftwVegIkX~6hO81OIvTsA6ASUgWdnf8va0QlaGHLI5w1d3LZ5WQ4xzYDg8~5lqPB5s3FE~~EL8aBeCKk-FtOPJ1AIPDMNH4X55A8QLYUF3NWY)
+
