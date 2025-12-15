@@ -19,8 +19,11 @@ I initially did this with a simple bash script that used `curl` & `jq`.
 Then I was working on other projects using gRPC and TCP, and I saw that I could
 support them with a little `grpcurl` and `netcat` magic.
 
-It kinda kept growing, and I thought *"hey, maybe other people would find this useful?"*
+Eventually I realised that I was building a new tool, and that other people
+might find it useful too, so I rewrote it in Go, added more features and
+released it as yapi.
 
+### Yapi makes HTTP requests easy
 #### POST
 This request:
 
