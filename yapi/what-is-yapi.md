@@ -57,12 +57,17 @@ yapi run create-issue.yapi.yml
   "assignees": [],
   "author_association": "OWNER",
   "body": "Now I can't stop YAPPIN' about yapi!\n",
-  "closed_at": null,
-  "closed_by": null,
-  "comments": 0,
   // ...blah blah blah
 }
+
+URL: https://api.github.com/repos/jamierpond/yapi/issues
+Time: 579.408625ms
+Size: 2.3 kB (1 lines, 2288 chars)
+
+[PASS] status check
+[PASS] .body == "Now I can't stop YAPPIN' about yapi!"
 ```
+
 You can also do PUT, PATCH, DELETE and any other HTTP method.
 
 ### Yapi supports chaining requests between protocols
