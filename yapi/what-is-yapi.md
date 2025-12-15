@@ -23,7 +23,7 @@ Eventually I realised that I was building a new tool, and that other people
 might find it useful too, so I rewrote it in Go, added more features and
 released it as yapi.
 
-### Yapi makes HTTP requests easy
+### Show me some examples!
 #### POST
 This request:
 
