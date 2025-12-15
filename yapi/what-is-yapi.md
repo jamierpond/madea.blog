@@ -105,3 +105,15 @@ expect:
 ```
 [Run this example in the yapi playground](https://yapi.run/c/TccVrmpVtt_daI~NZovhqJO6LNVxr-qTEAL9aQp.nAvs9GoUK8PdGgJ6o34wC-THPf64WS.-iAWCfXohQ8~eo~7iOhp6Wop-a_lwPT.Y624K-1S97CVJgXwMRxtwUzZz6on7xftwVegIkX~6hO81OIvTsA6ASUgWdnf8va0QlaGHLI5w1d3LZ5WQ4xzYDg8~5lqPB5s3FE~~EL8aBeCKk-FtOPJ1AIPDMNH4X55A8QLYUF3NWY)
 
+
+### Getting Started with Yapi
+To get started with yapi, simply install it using the instructions on the
+[yapi GitHub repository](https://github.com/jamierpond/yapi) and start creating your
+first request files!
+
+
+### Disclaimer
+Yapi is an open-source project maintained by just me [Jamie](https://pond.audio).
+If you find bugs or have feature requests, please open an issue on the
+[yapi GitHub repository](https://github.com/jamierpond/yapi).
+Pull requests are very welcome too!
