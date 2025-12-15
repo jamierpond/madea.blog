@@ -67,6 +67,8 @@ Size: 2.3 kB (1 lines, 2288 chars)
 [PASS] status check
 [PASS] .body == "Now I can't stop YAPPIN' about yapi!"
 ```
+*(Only the JSON goes to stdout, the rest goes to stderr, so is pipeable!)*
+
 
 You can also do PUT, PATCH, DELETE and any other HTTP method.
 
