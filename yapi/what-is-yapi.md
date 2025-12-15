@@ -87,4 +87,6 @@ chain:
 ```
 
 
+### Yapi supports interactive mode with fuzzy finding.
+
 
