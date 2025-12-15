@@ -116,6 +116,13 @@ expect:
 [Run this example in the yapi playground](https://yapi.run/c/TccVrmpVtt_daI~NZovhqJO6LNVxr-qTEAL9aQp.nAvs9GoUK8PdGgJ6o34wC-THPf64WS.-iAWCfXohQ8~eo~7iOhp6Wop-a_lwPT.Y624K-1S97CVJgXwMRxtwUzZz6on7xftwVegIkX~6hO81OIvTsA6ASUgWdnf8va0QlaGHLI5w1d3LZ5WQ4xzYDg8~5lqPB5s3FE~~EL8aBeCKk-FtOPJ1AIPDMNH4X55A8QLYUF3NWY)
 
 
+### Yapi has an LSP Server for IDE Integration
+Yapi comes with a Language Server Protocol (LSP) server that provides
+syntax highlighting, autocompletion and validation for yapi request files in
+editors that support LSP (Neovim, etc), you can also use the [yapi Neovim plugin](
+https://github.com/jamierpond/yapi/blob/main/lua/yapi_nvim/init.lua) (still early days).
+
+
 ### Getting Started with Yapi
 To get started with yapi, simply install it using the instructions on the
 [yapi GitHub repository](https://github.com/jamierpond/yapi) and start creating your
