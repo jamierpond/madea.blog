@@ -89,6 +89,20 @@ chain:
 ```
 
 
-### Yapi supports interactive mode with fuzzy finding.
+### Yapi supports wriring intgration tests with expectations and assertion.
+Yapi has built-in support for writing integration tests with expectations and assertions.
+Which makes it easy to write regresssion tests and ensure your APIs are working as expected.
 
-
+[Run this example in the yapi playground](https://yapi.run/c/TccVrmpVtt_daI~NZovhqJO6LNVxr-qTEAL9aQp.nAvs9GoUK8PdGgJ6o34wC-THPf64WS.-iAWCfXohQ8~eo~7iOhp6Wop-a_lwPT.Y624K-1S97CVJgXwMRxtwUzZz6on7xftwVegIkX~6hO81OIvTsA6ASUgWdnf8va0QlaGHLI5w1d3LZ5WQ4xzYDg8~5lqPB5s3FE~~EL8aBeCKk-FtOPJ1AIPDMNH4X55A8QLYUF3NWY)
+```yaml
+yapi: v1
+method: GET
+url: https://api.github.com/repos/jamierpond/yapi/issues/5
+headers:
+    Accept: application/vnd.github+json
+expect:
+    status: 200
+    assert:
+      - .state == "closed"
+      - .closed_by.login == "jamierpond"
+```
