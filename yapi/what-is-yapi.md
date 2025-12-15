@@ -1,22 +1,21 @@
-# What is yapi?
-## yapi is the api client that runs in your terminal.
+# (Draft) What is yapi?
+## Yapi is the API client that runs in your terminal.
 
-> yapi is the hacker's postman, insomnia or bruno.
+> Yapi is the hacker's Postman, Insomnia or Bruno.
 
-yapi is an oss command line tool that makes it easy to test apis from your terminal. yapi speaks http, grpc, tcp, graphql (and more coming soon).
+Yapi is an OSS command line tool that makes it easy to test APIs from your terminal. Yapi speaks HTTP, gRPC, TCP, GraphQL (and more coming soon).
 
-
-### yapi speaks http
-i wanted a fun way to make http requests from the terminal (without massive, ad-hoc `curl` incantations).
-#### get
-this request:
+### Yapi speaks HTTP
+I wanted a fun way to make HTTP requests from the terminal (without massive, ad-hoc `curl` incantations).
+#### GET
+This request:
 ```yaml
 # search.yapi.yml
 yapi: v1
-method: get
+method: GET
 url: https://api.github.com/search/repositories
 headers:
-  authorization: bearer ${github_pat} # reads from your environment
+  Authorization: Bearer ${GITHUB_PAT} # Reads from your environment
 query:
   q: yapi in:name, jamierpond in:owner
 jq_filter: |
@@ -27,7 +26,7 @@ jq_filter: |
     }
 ```
 
-gives you this response:
+Gives you this response:
 ```json
 yapi run search.yapi.yml
 {
@@ -47,88 +46,88 @@ yapi run search.yapi.yml
 }
 ```
 
-#### post
-this request:
+#### POST
+This request:
 ```yaml
 # create-issue.yapi.yml
 yapi: v1
-method: post
+method: POST
 url: https://api.github.com/repos/jamierpond/yapi/issues
 headers:
-  accept: application/vnd.github+json
-  authorization: bearer ${github_pat}
+  Accept: application/vnd.github+json
+  Authorization: Bearer ${GITHUB_PAT}
 body:
-  title: help yapi made me too productive.
+  title: Help yapi made me too productive.
   body: |
-    now i can't stop yappin' about yapi!
+    Now I can't stop YAPPIN' about yapi!
 ```
-gives you this response:
+Gives you this response:
 ```json
 yapi run create-issue.yapi.yml
 {
   "active_lock_reason": null,
   "assignee": null,
   "assignees": [],
-  "author_association": "owner",
-  "body": "now i can't stop yappin' about yapi!\n",
+  "author_association": "OWNER",
+  "body": "Now I can't stop YAPPIN' about yapi!\n",
   "closed_at": null,
   "closed_by": null,
   "comments": 0,
   // ...blah blah blah
 }
 ```
-you can also do put, patch, delete and any other http method.
+You can also do PUT, PATCH, DELETE and any other HTTP method.
 
-### yapi supports chaining requests between protocols
-#### multi-protocol chaining
-yapi makes it easy to chain requests and share data between them, even if they are different protocols.
+### Yapi supports chaining requests between protocols
+#### Multi-protocol chaining
+Yapi makes it easy to chain requests and share data between them, even if they are different protocols.
 ```yaml
 # multi-protocol-chain.yapi.yml
 yapi: v1
 chain:
   - name: get_todo
     url: https://jsonplaceholder.typicode.com/todos/1
-    method: get
+    method: GET
 
   - name: tcp_echo
     url: tcp://tcpbin.com:4242
-    data: "todo: ${get_todo.title}\n"
+    data: "Todo: ${get_todo.title}\n"
     encoding: text
     read_timeout: 5
     close_after_send: true
 
   - name: grpc_hello
     url: grpc://grpcb.in:9000
-    service: hello.helloservice
-    rpc: sayhello
+    service: hello.HelloService
+    rpc: SayHello
     plaintext: true
     body:
       greeting: $get_todo.title
 
   - name: create_post
     url: https://jsonplaceholder.typicode.com/posts
-    method: post
+    method: POST
     headers:
-      content-type: application/json
+      Content-Type: application/json
     body:
       original_todo: $get_todo.title
       grpc_reply: $grpc_hello.reply
-      userid: $get_todo.userid
+      userId: $get_todo.userId
     expect:
       status: 200
       assert:
         # run tests using jq assertions
-        - .userid == $get_todo.userid
+        - .userId == $get_todo.userId
 ```
 
-and gives you this response:
+And gives you this response:
 ```json
 yapi run multi-protocol-chain.yapi.yml
 {
   "completed": false,
   "id": 1,
   "title": "delectus aut autem",
-  "userid": 1
+  "userId": 1
 }
 {
   "reply": "hello delectus aut autem"
@@ -137,7 +136,7 @@ yapi run multi-protocol-chain.yapi.yml
   "grpc_reply": "hello delectus aut autem",
   "id": 101,
   "original_todo": "delectus aut autem",
-  "userid": 1
+  "userId": 1
 }
 ```
 
