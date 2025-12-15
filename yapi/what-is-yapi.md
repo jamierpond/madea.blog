@@ -1,144 +1,71 @@
-# (Draft) What is yapi?
-## Yapi is the API client that runs in your terminal.
+### What is yapi?
 
-> Yapi is the hacker's Postman, Insomnia or Bruno.
+**yapi** is a unified, terminal-centric API client designed for developers who prefer "configuration-as-code." Instead of clicking through a GUI like Postman or Insomnia, yapi allows you to define API requests and testing workflows in simple **YAML** files.
 
-Yapi is an OSS command line tool that makes it easy to test APIs from your terminal. Yapi speaks HTTP, gRPC, TCP, GraphQL (and more coming soon).
+It acts as a single executable CLI tool written in Go that can execute these files, handle complex workflows, and provide rich terminal output. It bridges the gap between simple `curl` scripts and full UI-based clients by supporting multiple protocols and stateful request chaining.
 
-### Yapi speaks HTTP
-I wanted a fun way to make HTTP requests from the terminal (without massive, ad-hoc `curl` incantations).
-#### GET
-This request:
+-----
+
+### Core Features
+
+#### 1\. Multi-Protocol Support
+
+Yapi is not limited to standard REST APIs. It uses a unified configuration structure to support diverse transport protocols:
+
+  * **HTTP/HTTPS:** Full support for methods, headers, query params, and JSON bodies.
+  * **gRPC:** First-class support using `grpc://` URLs. You can specify the service, RPC method, and proto files (or use server reflection).
+  * **GraphQL:** Native support for queries and variables.
+  * **TCP:** Send raw data (text, hex, or base64) directly to TCP sockets.
+
+#### 2\. Request Chaining (Workflows)
+
+One of yapi's most powerful features is **Chaining**. You can define a sequence of dependent requests where steps can reference data from previous steps.
+
+  * **Example:** A "Login" step gets a token, and the next step uses that token in the Authorization header.
+  * **Variable Extraction:** You can reference values like `${login.body.token}` or `${login.headers.Set-Cookie}`.
+
+#### 3\. Built-in Testing & Assertions
+
+Yapi includes a lightweight testing framework via the `expect` block. You can validate responses without writing external scripts:
+
+  * **Status Checks:** Assert specific HTTP or gRPC status codes.
+  * **JQ Assertions:** Use `jq` boolean expressions to validate the response body (e.g., `body.data.id != null`).
+
+#### 4\. Developer Experience (DX) & TUI
+
+Yapi is designed for a modern terminal workflow:
+
+  * **Watch Mode (`yapi watch`):** A TUI (Terminal User Interface) that watches your config file and re-runs the request instantly when you save changes.
+  * **Interactive Runner:** Running `yapi run` without arguments opens a fuzzy-search file picker to select a config file.
+  * **Syntax Highlighting:** Response bodies (JSON, HTML) are automatically syntax-highlighted.
+
+#### 5\. Utilities & Integration
+
+  * **JQ Filtering:** You can filter response output directly in the config using the `jq_filter` key.
+  * **LSP Support:** Yapi includes a built-in Language Server (`yapi lsp`) that provides autocompletion and validation for `.yapi.yml` files in your IDE.
+  * **Sharing:** The `yapi share` command compresses your configuration and generates a link to share it via the web.
+
+-----
+
+### Example Configuration
+
+Here is what a typical **yapi** configuration looks like (supporting both a simple request and assertions):
+
 ```yaml
-# search.yapi.yml
+# my-request.yapi.yml
 yapi: v1
-method: GET
-url: https://api.github.com/search/repositories
-headers:
-  Authorization: Bearer ${GITHUB_PAT} # Reads from your environment
-query:
-  q: yapi in:name, jamierpond in:owner
-jq_filter: |
-    .items[] | {
-      name: .name,
-      stars: .stargazers_count,
-      url: .html_url
-    }
-```
-
-Gives you this response:
-```json
-yapi run search.yapi.yml
-{
-  "name": "yapi",
-  "stars": 5, // at time of writing!
-  "url": "https://github.com/jamierpond/yapi"
-}
-{
-  "name": "yapi-blog",
-  "stars": 0,
-  "url": "https://github.com/jamierpond/yapi-blog"
-}
-{
-  "name": "homebrew-yapi",
-  "stars": 0,
-  "url": "https://github.com/jamierpond/homebrew-yapi"
-}
-```
-
-#### POST
-This request:
-```yaml
-# create-issue.yapi.yml
-yapi: v1
+url: https://api.example.com/users
 method: POST
-url: https://api.github.com/repos/jamierpond/yapi/issues
 headers:
-  Accept: application/vnd.github+json
-  Authorization: Bearer ${GITHUB_PAT}
-body:
-  title: Help yapi made me too productive.
-  body: |
-    Now I can't stop YAPPIN' about yapi!
+  Authorization: Bearer ${MY_ENV_VAR}
+json: |
+  {
+    "name": "Alice",
+    "role": "admin"
+  }
+expect:
+  status: 201
+  assert:
+    - .id != null
+    - .role == "admin"
 ```
-Gives you this response:
-```json
-yapi run create-issue.yapi.yml
-{
-  "active_lock_reason": null,
-  "assignee": null,
-  "assignees": [],
-  "author_association": "OWNER",
-  "body": "Now I can't stop YAPPIN' about yapi!\n",
-  "closed_at": null,
-  "closed_by": null,
-  "comments": 0,
-  // ...blah blah blah
-}
-```
-You can also do PUT, PATCH, DELETE and any other HTTP method.
-
-### Yapi supports chaining requests between protocols
-#### Multi-protocol chaining
-Yapi makes it easy to chain requests and share data between them, even if they are different protocols.
-```yaml
-# multi-protocol-chain.yapi.yml
-yapi: v1
-chain:
-  - name: get_todo
-    url: https://jsonplaceholder.typicode.com/todos/1
-    method: GET
-
-  - name: tcp_echo
-    url: tcp://tcpbin.com:4242
-    data: "Todo: ${get_todo.title}\n"
-    encoding: text
-    read_timeout: 5
-    close_after_send: true
-
-  - name: grpc_hello
-    url: grpc://grpcb.in:9000
-    service: hello.HelloService
-    rpc: SayHello
-    plaintext: true
-    body:
-      greeting: $get_todo.title
-
-  - name: create_post
-    url: https://jsonplaceholder.typicode.com/posts
-    method: POST
-    headers:
-      Content-Type: application/json
-    body:
-      original_todo: $get_todo.title
-      grpc_reply: $grpc_hello.reply
-      userId: $get_todo.userId
-    expect:
-      status: 200
-      assert:
-        # run tests using jq assertions
-        - .userId == $get_todo.userId
-```
-
-And gives you this response:
-```json
-yapi run multi-protocol-chain.yapi.yml
-{
-  "completed": false,
-  "id": 1,
-  "title": "delectus aut autem",
-  "userId": 1
-}
-{
-  "reply": "hello delectus aut autem"
-}
-{
-  "grpc_reply": "hello delectus aut autem",
-  "id": 101,
-  "original_todo": "delectus aut autem",
-  "userId": 1
-}
-```
-
-
-
