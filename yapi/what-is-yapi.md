@@ -5,6 +5,8 @@
 Yapi is an OSS command line tool that makes it easy to test APIs from your
 terminal. Yapi speaks HTTP, gRPC, TCP, GraphQL (and more coming soon).
 
+![yapi in action](https://github.com/jamierpond/madea.blog/blob/main/yapi/yapi-example.gif?raw=true)
+
 ### Elephant in the room, *why another API client?*
 I built yapi for me to quickly test APIs from the without `curl` incantations,
 and without%20having%20to%20manually%20encode%20query%20parameters%21.
