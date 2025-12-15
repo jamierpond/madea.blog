@@ -88,7 +88,7 @@ chain:
 ```
 [Run this example in the yapi playground](https://yapi.run/c/Df.8OgAzqUG-ZpArHJoiQovBOB1XLQM8BNSbz655jxnoC_d1kKWwWp3qeqyLUO_M73lKIwrUWJ6prOLMl5R2.qS8r1QzMvktH~6BGCJjH3E6CO6.iI_fuN4z.kAT3W70t~of01maCruwdBfYgS_nxmtesmpiqKbjalxSWIKMGIRbdL_u8WwRc89gKXPB0kW5wy_CGDmIF0Kef.vuRpV7Hm3BjZie2~yI6DHtvb-RgOqEzldl0W~Y.m4RTNw_Oy.OlksIrAkhwiIy6gdyVqPk0tgTzOePDzuo.trOigUj1AtfBNDpowrEdIU3MmT53pjaobcZV73FYwwpjWOfdNCEJqKTTUVrCc8ZgVB5riViWnJxqo5yz759FWyiBFbi~_2nLHnu67V7RLQPUYnFknAovF2SegQYEmmI~vrbJjjmdNShJNaVW)
 
-### Yapi supports wriring intgration tests with expectations and assertion.
+### Integration Testing with yapi
 Yapi has built-in support for writing integration tests with expectations and assertions.
 Which makes it easy to write regresssion tests and ensure your APIs are working as expected.
 
