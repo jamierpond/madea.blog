@@ -11,6 +11,8 @@ terminal. Yapi speaks HTTP, gRPC, TCP, GraphQL (and more coming soon).
 I built yapi for me to quickly test APIs from the without `curl` incantations,
 and without%20having%20to%20manually%20encode%20query%20parameters%21.
 
+(I'm also not into having yet another 200 exabyte Electron app on my laptop either...)
+
 I initially did this with a simple bash script that used `curl` & `jq`.
 
 Then I was working on other projects using gRPC and TCP, and I saw that I could
