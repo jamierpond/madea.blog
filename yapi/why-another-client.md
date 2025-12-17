@@ -178,7 +178,3 @@ If you want a better GUI client, Bruno is excellent.
 If you want a better curl, HTTPie is great.
 If you want a better test runner, Hurl is compelling.
 
-Yapi exists because none of those tools are built for **AI-native ownership**.
-
-That may or may not matter to you yet.
-But it will.
