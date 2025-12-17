@@ -16,7 +16,7 @@ if you have any suggestions or find any bugs!
 
 ### Elephant in the room, *why another API client?*
 I built yapi for me to quickly test APIs without `curl` incantations,
-and without%20having%20to%20manually%20encode%20query%20parameters%21.
+and without%20​having%20​to%20​manually%20​encode%20​query%20​parameters%21.
 
 (I'm also not into having yet another 200 exabyte Electron app on my laptop either...)
 
