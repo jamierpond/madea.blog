@@ -1,4 +1,4 @@
-# Fush
+# Introducing Yapi: The Command Line API Client Of Your Dreams
 
 > Yapi is the hacker's Postman, Insomnia or Bruno.
 
