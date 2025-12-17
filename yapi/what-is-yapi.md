@@ -72,8 +72,6 @@ Size: 2.3 kB (1 lines, 2288 chars)
 ```
 *(Only the JSON goes to stdout, the rest goes to stderr, so is pipeable!)*
 
-You can also do PUT, PATCH, DELETE and any other HTTP method.
-
 ### Yapi supports chaining requests between protocols
 #### Multi-protocol chaining
 Yapi makes it easy to chain requests and share data between them, even if they are different protocols.
