@@ -1,4 +1,4 @@
-# [DRAFT] Why There Are So Many API Clients (and Why I Built Yapi Anyway)
+# [DRAFT] Why There Are So Many API Clients (and Why I Built **yapi** Anyway)
 
 If you search for "Postman alternative," you’ll find dozens of tools that all
 claim to fix the same problems. That should have warned me that I was building
@@ -112,7 +112,7 @@ Agents remain second-class users.
 
 ## TUI Clients ([Posting](https://posting.sh/), [ATAC](https://github.com/Julien-cpsn/ATAC)): Interaction Reimagined
 
-Posting actually serialises requests in yaml very similar to yapi. It wouldn't be too hard to write a Posting adapter for **yapi**.
+Posting actually serialises requests in yaml very similar to **yapi**. It wouldn't be too hard to write a Posting adapter for **yapi**.
 **yapi**.
 
 **Strengths**
@@ -151,13 +151,13 @@ Today:
 
 No existing tool treats **API interaction as a durable, executable artifact owned jointly by humans and agents**.
 
-That is the gap Yapi exists to fill.
+That is the gap **yapi** exists to fill.
 
 ---
 
-## Why Yapi Is Different (and Why It Had to Exist)
+## Why **yapi** Is Different (and Why It Had to Exist)
 
-Yapi makes a different set of tradeoffs, intentionally:
+**yapi** makes a different set of tradeoffs, intentionally:
 
 * Files are the source of truth.
 * Workflows are declarative, not scripted.
@@ -168,7 +168,7 @@ Yapi makes a different set of tradeoffs, intentionally:
 This isn’t about being “better than Postman.”
 It’s about optimizing for a different future.
 
-Yapi assumes:
+**yapi** assumes:
 
 * agents will write and fix tests,
 * failures must be self-describing,
@@ -182,4 +182,3 @@ Yapi exists because none of those tools are built for **AI-native ownership**.
 
 That may or may not matter to you yet.
 But it will.
-
