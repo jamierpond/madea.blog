@@ -163,7 +163,7 @@ That is the gap **yapi** exists to fill.
 * Workflows are declarative, not scripted.
 * Assertions are first-class.
 * Output is structured and machine-readable.
-* Protocols are abstracted, not baked in.
+* **yapi** is extensible to any protocol.
 
 This isn’t about being “better than Postman.”
 It’s about optimizing for a different future.
