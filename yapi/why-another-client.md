@@ -1,6 +1,6 @@
 # Why There Are So Many API Clients (and Why I Built Yapi Anyway)
 
-If you search for “Postman alternative,” you’ll find dozens of tools that all claim to fix the same problems. That alone should be a warning sign.
+If you search for "Postman alternative," you’ll find dozens of tools that all claim to fix the same problems. That alone should be a warning sign.
 
 API clients are not a solved problem. They’re a moving target, shaped by how software is written. Over the last few years, that underlying reality has changed faster than the tools.
 
@@ -37,13 +37,16 @@ Once you see this, the landscape becomes easier to reason about.
 * Automation is bolted on after the fact.
 
 **Why this matters now**
-These tools assume a human is always present to click, inspect, and correct. LLMs cannot do that. They cannot safely read or modify hidden state, and they cannot reason about a workflow embedded in a GUI.
+These tools assume a human is always present to click, inspect, and correct.
+LLMs cannot do that. They cannot safely read or modify hidden state,
+and they cannot reason about a workflow embedded in a GUI.
 
 These tools are great for learning an API. They do not scale to automated ownership.
 
 ---
 
-## [curl](https://curl.se/), [HTTPie](https://httpie.io/), [xh](https://github.com/ducaale/xh): Command-First
+## [curl](https://curl.se/), [HTTPie](https://httpie.io/),
+[xh](https://github.com/ducaale/xh): Command-First
 
 **Strengths**
 
