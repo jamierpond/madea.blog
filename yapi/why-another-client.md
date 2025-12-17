@@ -64,7 +64,7 @@ These tools are excellent primitives. They are not systems.
 
 ---
 
-## Hurl: Test-First
+## [Hurl](https://hurl.dev/): Test-First
 
 **Strengths**
 
