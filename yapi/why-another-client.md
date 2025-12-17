@@ -21,7 +21,7 @@ Once you see this, the landscape becomes easier to reason about.
 
 ---
 
-## Postman and Insomnia: Interaction-First
+## [Postman](https://www.postman.com/) and [Insomnia](https://insomnia.rest/): Interaction-First
 
 **Strengths**
 
@@ -43,7 +43,7 @@ These tools are great for learning an API. They do not scale to automated owners
 
 ---
 
-## curl, HTTPie, xh: Command-First
+## [curl](https://curl.se/), [HTTPie](https://httpie.io/), [xh](https://github.com/ducaale/xh): Command-First
 
 **Strengths**
 
@@ -83,7 +83,7 @@ Hurl is the closest existing tool to treating requests as code. But modern syste
 
 ---
 
-## Bruno: Artifact-First (for Humans)
+## [Bruno](https://www.usebruno.com/): Artifact-First (for Humans)
 
 **Strengths**
 
@@ -106,7 +106,10 @@ Agents remain second-class users.
 
 ---
 
-## TUI Clients (Posting, ATAC): Interaction Reimagined
+## TUI Clients ([Posting](https://posting.sh/), [ATAC](https://github.com/Julien-cpsn/ATAC)): Interaction Reimagined
+
+Posting actually serialises requests in yaml very similar to yapi. It wouldn't be too hard to write a Posting adapter for **yapi**.
+**yapi**.
 
 **Strengths**
 
