@@ -1,4 +1,4 @@
-# Introducing Yapi: The API Client Of Your Dreams
+# Fush
 
 > Yapi is the hacker's Postman, Insomnia or Bruno.
 
@@ -8,14 +8,14 @@ terminal. Yapi speaks HTTP, gRPC, TCP, GraphQL (and more coming soon).
 ![yapi in action](https://github.com/jamierpond/madea.blog/blob/main/yapi/yapi-example.gif?raw=true)
 
 ### Heads up! *Yapi is early, early alpha software*
-I daily drive yapi in my day-to-day developing. However, yapi is a *SUPER*
-yound project and will have bugs, missing features and rough edges.
+I use yapi daily in my development workflow. However, yapi is a *SUPER*
+young project and will have bugs, missing features and rough edges.
 
 If you [download yapi](), I would *LOVE* your feedback on how to make it better. Please [open an issue](https://github.com/jamierpond/yapi/issues)
 if you have any suggestions or find any bugs!
 
 ### Elephant in the room, *why another API client?*
-I built yapi for me to quickly test APIs from the without `curl` incantations,
+I built yapi for me to quickly test APIs without `curl` incantations,
 and without%20having%20to%20manually%20encode%20query%20parameters%21.
 
 (I'm also not into having yet another 200 exabyte Electron app on my laptop either...)
@@ -130,6 +130,6 @@ first request files!
 
 
 ### Contributing to Yapi
-Yapi is an open-source project maintained by just me [Jamie](https://pond.audio).
+Yapi is an open-source project maintained by just me, [Jamie](https://pond.audio).
 If you find bugs or have feature requests, please open an issue on the
 [yapi GitHub repository](https://github.com/jamierpond/yapi). Pull requests are very welcome too!
