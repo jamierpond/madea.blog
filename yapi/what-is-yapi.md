@@ -7,12 +7,11 @@ terminal. Yapi speaks HTTP, gRPC, TCP, GraphQL (and more coming soon).
 
 ![yapi in action](https://github.com/jamierpond/madea.blog/blob/main/yapi/yapi-example.gif?raw=true)
 
-### Heads Up!
+### Heads up! *Yapi is early, early alpha software*
 I daily drive yapi in my day-to-day developing. However, yapi is a *SUPER*
-yound project, pre 1.0.0 and has some rough edges.
+yound project and will have bugs, missing features and rough edges.
 
-I would *LOVE* your feedback on how to make it better, please
-[open an issue](https://github.com/jamierpond/yapi/issues)
+If you [download yapi](), I would *LOVE* your feedback on how to make it better. Please [open an issue](https://github.com/jamierpond/yapi/issues)
 if you have any suggestions or find any bugs!
 
 ### Elephant in the room, *why another API client?*
@@ -122,6 +121,7 @@ syntax highlighting, autocompletion and validation for yapi request files in
 editors that support LSP (Neovim, etc), you can also use the [yapi Neovim plugin](
 https://github.com/jamierpond/yapi/blob/main/lua/yapi_nvim/init.lua) (still early days).
 
+At some point I'll write the VSCode extension too, please make an issue if you think this is important!
 
 ### Getting Started with Yapi
 To get started with yapi, simply install it using the instructions on the
