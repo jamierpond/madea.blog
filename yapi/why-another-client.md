@@ -1,27 +1,21 @@
 # Why There Are So Many API Clients (and Why I Built Yapi Anyway)
 
-If you search for "Postman alternative," you’ll find dozens of tools that all claim to fix the same problems. That alone should be a warning sign.
+If you search for "Postman alternative," you’ll find dozens of tools that all
+claim to fix the same problems. That should have warned me that I was building
+something stupid.
 
-API clients are not a solved problem. They’re a moving target, shaped by how software is written. Over the last few years, that underlying reality has changed faster than the tools.
+However, API clients are not a solved problem. The way we write software keeps
+chaging, and with LLMs entering the loop of our workflow, having tools which
+synergise the efforts of humans and LLMs is crucial.
 
-This post is a transparent accounting of the current landscape, what each class of tool does well, where it breaks down, and why I ultimately built **Yapi** instead of adopting yet another alternative.
-
----
-
-## A Useful Mental Model
-
-Every API client makes a choice about **what the primary unit of value is**:
-
-* an **interaction** (clicking, sending, exploring)
-* a **command** (a single request)
-* a **test** (assertions over responses)
-* or an **artifact** (a durable, reviewable program)
-
-Once you see this, the landscape becomes easier to reason about.
+This post is an accounting of the current landscape, what each class of tool
+does well, where it breaks down, and why I ultimately built **yapi** instead
+of adopting yet another alternative.
 
 ---
 
 ## [Postman](https://www.postman.com/) and [Insomnia](https://insomnia.rest/): Interaction-First
+The ol' classic. Everyone's favorite and least favorite at the same time.
 
 **Strengths**
 
@@ -86,7 +80,7 @@ Hurl is the closest existing tool to treating requests as code. But modern syste
 
 ---
 
-## [Bruno](https://www.usebruno.com/): Artifact-First (for Humans)
+## [Bruno](https://www.usebruno.com/)
 
 **Strengths**
 
