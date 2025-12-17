@@ -15,7 +15,7 @@ If you [download yapi](https://github.com/jamierpond/yapi), I would *LOVE* your 
 if you have any suggestions or find any bugs!
 
 ### Elephant in the room, *why another API client?*
-I have a [separate blog post going into detail on this](/what-is-yapi.md), but the short version
+I have a [separate blog post going into detail on this](/blog/why-another-client), but the short version
 
 I built yapi for me to quickly test APIs without `curl` incantations,
 and without%20​having%20​to%20​manually%20​encode%20​query%20​parameters%21.
