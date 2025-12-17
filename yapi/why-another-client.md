@@ -1,4 +1,4 @@
-# Why There Are So Many API Clients (and Why I Built Yapi Anyway)
+# [DRAFT] Why There Are So Many API Clients (and Why I Built Yapi Anyway)
 
 If you search for "Postman alternative," you’ll find dozens of tools that all
 claim to fix the same problems. That should have warned me that I was building
@@ -19,15 +19,13 @@ The ol' classic. Everyone's favorite and least favorite at the same time.
 
 **Strengths**
 
-* Excellent UX for exploration.
-* Rich auth helpers and environments.
+* Good UX for exploration.
 * Easy to onboard non-engineers.
 
 **Limitations**
 
 * The GUI is the source of truth.
 * State lives in synced workspaces and opaque JSON.
-* Exports do not round-trip cleanly.
 * Automation is bolted on after the fact.
 
 **Why this matters now**
@@ -35,7 +33,8 @@ These tools assume a human is always present to click, inspect, and correct.
 LLMs cannot do that. They cannot safely read or modify hidden state,
 and they cannot reason about a workflow embedded in a GUI.
 
-These tools are great for learning an API. They do not scale to automated ownership.
+These tools are great for learning API development in a fun and easy way. But
+it's not fast to use for power users.
 
 ---
 
@@ -55,13 +54,19 @@ These tools are great for learning an API. They do not scale to automated owners
 * Assertions, reuse, and state require external glue.
 
 **Why this matters now**
-LLMs are good at emitting commands. They are bad at maintaining shell scripts as systems evolve. Once a workflow spans multiple steps, correctness degrades quickly.
+LLMs are good at emitting commands. They are bad at maintaining shell scripts
+as systems evolve. Once a workflow spans multiple steps, correctness degrades
+quickly.
 
 These tools are excellent primitives. They are not systems.
 
 ---
 
 ## [Hurl](https://hurl.dev/): Test-First
+To be fair, Hurl is really close conceptually to what I wanted.
+However, I didn't want a DSL for making requests, I wanted YAML with an LSP so
+anyone can onboard super fast and LLMs (and humans) can use the LSP to write
+correct code straight away.
 
 **Strengths**
 
@@ -71,12 +76,14 @@ These tools are excellent primitives. They are not systems.
 
 **Limitations**
 
-* HTTP-only.
-* Linear execution model.
-* Optimized for regression tests, not workflows.
+* HTTP-only, no gRPC, TCP, WebSockets.
+* 'DS(m)L' weird hand-rolled domain specific markup language for defining
+requests. *(Insert @theprimagen pronouncing it 'dismal')*
 
 **Why this matters now**
-Hurl is the closest existing tool to treating requests as code. But modern systems are rarely single-protocol or single-step. Once you need gRPC, raw sockets, or stateful workflows, you leave its design envelope.
+Hurl is the closest existing tool to treating requests as code.
+But modern systems are rarely single-protocol or single-step. Once you need gRPC,
+raw sockets, or stateful workflows, you leave its design envelope.
 
 ---
 
