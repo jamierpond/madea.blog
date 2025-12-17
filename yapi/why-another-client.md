@@ -5,7 +5,7 @@ claim to fix the same problems. That should have warned me that I was building
 something stupid.
 
 However, API clients are not a solved problem. The way we write software keeps
-chaging, and with LLMs entering the loop of our workflow, having tools which
+changing, and with LLMs entering the loop of our workflow, having tools which
 synergise the efforts of humans and LLMs is crucial.
 
 This post is an accounting of the current landscape, what each class of tool
