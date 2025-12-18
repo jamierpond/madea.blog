@@ -15,7 +15,7 @@ of adopting yet another alternative.
 ---
 
 ## [Postman](https://www.postman.com/) and [Insomnia](https://insomnia.rest/): Interaction-First
-The ol' classic. Everyone's favorite and least favorite.
+The ol' classics. Everyone's favorite and least favorite.
 
 **Strengths**
 * Good UX for exploration.
@@ -40,14 +40,14 @@ The ol' classic. Everyone's favorite and least favorite.
 * No structure beyond the shell.
 * Chaining becomes fragile piping.
 * Assertions, reuse, and state require external glue.
-* Not sexy.
+* Only kinda sexy.
 
 **Why this matters now**
-LLMs are good at emitting commands. They are bad at maintaining shell scripts
-as systems evolve. Once a workflow spans multiple steps, correctness degrades
-quickly.
+LLMs are good at emitting commands.
+It would be a massive PITA to maintain a fleet of shell scripts plumbing all
+your `curl` integration tests together.
 
-These tools are excellent primitives. They are not systems.
+These tools are excellent primitives. They are not API testing systems.
 
 ---
 
@@ -66,6 +66,7 @@ correct code straight away.
 * HTTP-only, no gRPC, TCP, WebSockets.
 * 'DS(m)L' weird hand-rolled domain specific markup language for defining
 requests. *(Insert @theprimagen pronouncing it 'dismal')*
+* Medium sexy.
 
 **Why this matters now**
 Hurl is the closest existing tool to treating requests as code.
@@ -80,13 +81,11 @@ raw sockets, or stateful workflows, you leave its design envelope.
 * Files are the source of truth.
 * Git-friendly and offline.
 * A principled response to Postman’s cloud model.
-* Excellent ergonomics for manual exploration.
+* Pretty good CLI tool!
 
 **Limitations**
-* Still human-centric.
-* Workflows rely on embedded scripting.
-* Errors and output are optimized for reading, not parsing.
-* Agents can generate files but struggle to repair them.
+* Still too human-centric.
+
 
 **Why this matters now**
 Bruno proves that “files over GUIs” was the right move. But it still assumes a
