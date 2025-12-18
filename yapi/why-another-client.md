@@ -1,16 +1,16 @@
 # Why There Are So Many API Clients (and Why I Built yapi Anyway)
 
 If you search for "Postman alternative," you’ll find dozens of tools that all
-claim to fix the same problems. That should have warned me that I was building
-something stupid.
+claim to fix the problem of being a great API client. That should have warned
+me that I was building something stupid.
 
-However, API clients are not a solved problem. The way we write software keeps
-changing, and with LLMs entering the loop of our workflow, having tools which
-synergise the efforts of humans and LLMs is crucial.
+However, it seems, API clients are not a solved problem. The way we write
+software keeps changing, and with LLMs entering the loop of our workflow,
+having tools which synergise the efforts of humans and LLMs is crucial.
 
 This post reviews the current landscape of API clients, what each class of tool
 does well, where it breaks down, and why I ultimately built **yapi** instead
-of adopting yet another alternative.
+of adopting a existing solution.
 
 ---
 
