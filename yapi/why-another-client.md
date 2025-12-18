@@ -14,8 +14,7 @@ of adopting yet another alternative.
 
 ---
 
-## [Postman](https://www.postman.com/) and
-[Insomnia](https://insomnia.rest/): Interaction-First
+## [Postman](https://www.postman.com/) and [Insomnia](https://insomnia.rest/): Interaction-First
 The ol' classic. Everyone's favorite and least favorite.
 
 **Strengths**
