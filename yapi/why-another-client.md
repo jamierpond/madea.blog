@@ -8,7 +8,7 @@ However, API clients are not a solved problem. The way we write software keeps
 changing, and with LLMs entering the loop of our workflow, having tools which
 synergise the efforts of humans and LLMs is crucial.
 
-This post is an accounting of the current landscape, what each class of tool
+This post reviews the current landscape of API clients, what each class of tool
 does well, where it breaks down, and why I ultimately built **yapi** instead
 of adopting yet another alternative.
 
