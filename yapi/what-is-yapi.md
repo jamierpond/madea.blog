@@ -124,12 +124,15 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm ci
+
+      - name: Build Application
+        run: npm build
 
       - name: Run Yapi Integration Tests
         uses: jamierpond/yapi/action@0.X.X
         with:
-          start: npm run dev
+          start: npm run start
           wait-on: http://localhost:3000/health
           command: yapi test ./tests -a
 ```
