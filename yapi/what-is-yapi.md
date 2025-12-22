@@ -147,6 +147,41 @@ For example, here is the output of yapi running integration tests in GitHub Acti
 ![yapi in GitHub Actions](https://github.com/jamierpond/madea.blog/blob/main/yapi/ci.png?raw=true)
 
 
+### Supports for Multiple Environments
+Yapi make it easy to manage multiple environments (dev, staging, prod, etc).
+Define your environments in a `yapi.config.yml` file:
+```yaml
+yapi: v1
+
+default_environment: local
+
+environments:
+  local:
+    url: http://localhost:3000
+    env_file: .env.local
+    vars:
+      some_param: default_value
+
+  prod:
+    url: https://yapi.run
+    env_file: .env.prod
+    vars:
+      some_param: some_value
+```
+Then run yapi with the desired environment:
+
+```bash
+yapi run my-request.yapi.yml --env prod
+```
+
+This also cleans up your request files a little, now you can use `path`s instead of full URLs:
+```yaml
+yapi: v1
+method: GET
+url: /api/v1/status # base URL comes from the selected environment
+```
+
+
 ### Getting Started with Yapi
 To get started with yapi, simply install it using the instructions on the
 [yapi GitHub repository](https://github.com/jamierpond/yapi) and start creating your
