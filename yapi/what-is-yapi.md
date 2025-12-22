@@ -106,6 +106,34 @@ https://github.com/jamierpond/yapi/blob/main/lua/yapi_nvim/init.lua) (still earl
 
 At some point I'll write the VSCode extension too, please make an issue if you think this is important!
 
+### GitHub Actions Support
+I use yapi's GitHub Action to run [integraion tests on the CI for this blog]()!
+```yaml
+name: Integration Tests
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run Yapi Integration Tests
+        uses: jamierpond/yapi/action@0.X.X
+        with:
+          start: npm run dev
+          wait-on: http://localhost:3000/health
+          command: yapi test ./tests -a
+```
+
+
 ### Getting Started with Yapi
 To get started with yapi, simply install it using the instructions on the
 [yapi GitHub repository](https://github.com/jamierpond/yapi) and start creating your
