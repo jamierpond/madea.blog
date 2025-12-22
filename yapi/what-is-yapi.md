@@ -178,7 +178,7 @@ This also cleans up your request files a little, now you can use `path`s instead
 ```yaml
 yapi: v1
 method: GET
-url: /api/v1/status # base URL comes from the selected environment
+path: /api/v1/status # base URL comes from the selected environment
 ```
 
 
