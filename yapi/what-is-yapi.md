@@ -23,12 +23,15 @@ This request:
 yapi: v1 # specify yapi version
 method: POST # or GET, PUT, DELETE, PATCH, etc.
 url: https://api.github.com/repos/jamierpond/yapi/issues
+
 headers:
   Accept: application/vnd.github+json
   Authorization: Bearer ${GITHUB_PAT} # supports environment variables
+
 body: # defaults to JSON body, converted automatically
   title: Help! yapi made me too productive.
   body: Now I can't stop YAPPIN' about yapi!
+
 expect: # supports expected response tests
   status: 201
   assert: # assert using jq syntax
@@ -67,13 +70,16 @@ chain:
   - name: get_todo # HTTP request
     url: https://jsonplaceholder.typicode.com/todos/1
     method: GET
+
   - name: grpc_hello # gRPC request
     url: grpc://grpcb.in:9000
     service: hello.HelloService
     rpc: SayHello # Supports reflection if server has it enabled
     plaintext: true
+
     body:
       greeting: $get_todo.title # use data from previous request
+
     expect:
       assert:
         - .reply == "hello delectus aut autem" # assert on gRPC response
