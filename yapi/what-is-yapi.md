@@ -14,23 +14,6 @@ young project and will have bugs, missing features and rough edges.
 If you [download yapi](https://github.com/jamierpond/yapi), I would *LOVE* your feedback on how to make it better. Please [open an issue](https://github.com/jamierpond/yapi/issues)
 if you have any suggestions or find any bugs!
 
-### Elephant in the room, *why another API client?*
-I have a [separate blog post going into detail on this](/blog/why-another-client), but the short version
-
-I built yapi for me to quickly test APIs without `curl` incantations,
-and without%20​having%20​to%20​manually%20​encode%20​query%20​parameters%21.
-
-(I'm also not into having yet another 200 exabyte Electron app on my laptop either...)
-
-I initially did this with a simple bash script that used `curl` & `jq`.
-
-Then I was working on other projects using gRPC and TCP, and I saw that I could
-support them with a little `grpcurl` and `netcat` magic.
-
-Eventually I realised that I was building a new tool, and that other people
-might find it useful too, so I rewrote it in Go, added more features and
-released it as yapi.
-
 ### Show me some examples!
 #### POST
 This request:
