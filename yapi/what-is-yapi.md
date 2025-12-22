@@ -107,6 +107,7 @@ https://github.com/jamierpond/yapi/blob/main/lua/yapi_nvim/init.lua) (still earl
 At some point I'll write the VSCode extension too, please make an issue if you think this is important!
 
 ### GitHub Actions Support
+
 I use yapi's GitHub Action to run [integraion tests on the CI for this blog]()!
 ```yaml
 name: Integration Tests
@@ -132,6 +133,8 @@ jobs:
           wait-on: http://localhost:3000/health
           command: yapi test ./tests -a
 ```
+
+![yapi in GitHub Actions](https://github.com/jamierpond/madea.blog/blob/main/yapi/ci.png?raw=true)
 
 
 ### Getting Started with Yapi
