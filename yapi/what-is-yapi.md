@@ -1,6 +1,6 @@
 # Introducing Yapi: The Command Line API Client Of Your Dreams
 
-> Yapi is the hacker's Postman, Insomnia or Bruno.
+> Yapi is Postman, Insomnia or Bruno for the power user.
 
 Yapi is an OSS command line tool that makes it easy to test APIs from your
 terminal. Yapi speaks HTTP, gRPC, TCP, GraphQL (and more coming soon).
