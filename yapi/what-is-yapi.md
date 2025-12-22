@@ -108,7 +108,7 @@ At some point I'll write the VSCode extension too, please make an issue if you t
 
 ### GitHub Actions Support
 
-I use yapi's GitHub Action to run [integraion tests on the CI for this blog]()!
+I use yapi's GitHub Action to run [integraion tests on the CI for this blog](https://github.com/jamierpond/yapi/actions/runs/20426239184/job/58687025263)!
 ```yaml
 name: Integration Tests
 on: [push, pull_request]
@@ -134,6 +134,7 @@ jobs:
           command: yapi test ./tests -a
 ```
 
+For example, here is the output of yapi running integration tests in GitHub Actions:
 ![yapi in GitHub Actions](https://github.com/jamierpond/madea.blog/blob/main/yapi/ci.png?raw=true)
 
 
